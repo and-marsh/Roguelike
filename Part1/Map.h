@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-struct Tile 
+struct Tile
 {
 	bool canWalk; // can we walk through this tile?
 	Tile() : canWalk(true) {}
@@ -21,4 +21,3 @@ protected:
 
 	void setWall(int x, int y);
 };
-
