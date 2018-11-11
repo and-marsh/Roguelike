@@ -17,6 +17,8 @@ public:
 	bool isWall(int x, int y) const;
 	bool isInFov(int x, int y) const;
 	bool isExplored(int x, int y) const;
+	bool canWalk(int x, int y) const;
+	void addMonster(int x, int y);
 	void computeFov();
 	void render() const;
 protected:
