@@ -1,29 +1,41 @@
 #pragma once
-#include "libtcod.h"
+//local includes
 #include "Actor.h"
 #include "Map.h"
 
-class Engine {
+////////////////////////////////////////////////////////////////////
+// Engine class
+////////////////////////////////////////////////////////////////////
+
+class Engine
+{
 public:
-	enum GameStatus 
+	enum GameStatus
 	{
-		STARTUP,	 //first frame of the game
-		IDLE,		 //no new turn. Redraw the same screen.
-		NEW_TURN,	 //update the monsters position
-		VICTORY,	 //the player won
-		DEFEAT		 //the player was killed
+		STARTUP
+		, IDLE
+		, NEW_TURN
+		, VICTORY
+		, DEFEAT
 	} gameStatus;
 
+	TCOD_key_t lastKey;
 	TCODList<Actor *> actors;
-	Actor *player;
-	Map *map;
+	Actor* player;
+	Map* map;
 	int fovRadius;
+	int screenWidth;
+	int screenHeight;
 
-	Engine();
+	Engine(int screenWidth, int screenHeight);
 	~Engine();
 	void update();
 	void render();
+	void sendToBack(Actor* actor);
 };
 
 extern Engine engine;
 
+////////////////////////////////////////////////////////////////////
+// End Engine class
+////////////////////////////////////////////////////////////////////

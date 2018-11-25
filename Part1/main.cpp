@@ -1,12 +1,11 @@
-#include "libtcod.h"
-#include "Actor.h"
-#include "Map.h"
 #include "Engine.h"
 
-Engine engine;
+Engine engine(80, 50);
 
-int main() {
-	while (!TCODConsole::isWindowClosed()) {
+int main()
+{
+	while (!TCODConsole::isWindowClosed())
+	{
 		engine.update();
 		engine.render();
 		TCODConsole::flush();

@@ -1,5 +1,6 @@
 #pragma once
-#include <vector>
+//libtcod include
+#include "libtcod.h"
 
 struct Tile
 {
